@@ -24,6 +24,11 @@ jobs:
           echo "${{ secrets.EC2_KEY }}" > /tmp/ec2-key.pem
           chmod 600 /tmp/ec2-key.pem
       
+      - name: Add EC2 host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+      
       - name: Run Ansible playbook
         run: |
           ansible-playbook -i ansible/inventory.yml ansible/ec2-setup-playbook.yml \
