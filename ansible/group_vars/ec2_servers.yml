@@ -1,0 +1,14 @@
+# group_vars/ec2_servers.yml
+app_name: "NivelaService"
+app_user: "www-data"
+app_group: "www-data"
+app_directory: "/var/www/your-app"
+app_executable: "NivelaService"  # Your .NET executable name
+app_port: "5000"
+dotnet_version: "8.0"
+aspnet_environment: "Production"
+
+# Environment variables for your app
+app_env_vars:
+  ConnectionStrings__DefaultConnection: "Host=34.74.244.105;Port=5432;Database=NivelaDb;Username=postgres;Password=KejaHUnT@2217;"
+  # Add more as needed

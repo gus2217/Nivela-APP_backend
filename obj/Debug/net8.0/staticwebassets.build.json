@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "X6zX9R5/mwXkWS8wCf/grkm2pM7k6+NkD1joJguGD4A=",
+  "Source": "NivelaService",
+  "BasePath": "_content/NivelaService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
