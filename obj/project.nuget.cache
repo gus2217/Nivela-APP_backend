@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X1W5eUH/y18=",
+  "dgSpecHash": "/OTtM7i7r7w=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Karol Kiptoo\\Source\\Repos\\NivelaService\\NivelaService\\NivelaService.csproj",
+  "projectFilePath": "C:\\Users\\Karol Kiptoo\\Desktop\\Nivela.1\\Nivela-APP\\NivelaService\\NivelaService\\NivelaService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Karol Kiptoo\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Karol Kiptoo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

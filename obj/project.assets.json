@@ -3217,11 +3217,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Karol Kiptoo\\Source\\Repos\\NivelaService\\NivelaService\\NivelaService.csproj",
+      "projectUniqueName": "C:\\Users\\Karol Kiptoo\\Desktop\\Nivela.1\\Nivela-APP\\NivelaService\\NivelaService\\NivelaService.csproj",
       "projectName": "NivelaService",
-      "projectPath": "C:\\Users\\Karol Kiptoo\\Source\\Repos\\NivelaService\\NivelaService\\NivelaService.csproj",
+      "projectPath": "C:\\Users\\Karol Kiptoo\\Desktop\\Nivela.1\\Nivela-APP\\NivelaService\\NivelaService\\NivelaService.csproj",
       "packagesPath": "C:\\Users\\Karol Kiptoo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Karol Kiptoo\\Source\\Repos\\NivelaService\\NivelaService\\obj\\",
+      "outputPath": "C:\\Users\\Karol Kiptoo\\Desktop\\Nivela.1\\Nivela-APP\\NivelaService\\NivelaService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
