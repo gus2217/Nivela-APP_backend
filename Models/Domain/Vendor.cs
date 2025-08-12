@@ -17,5 +17,7 @@
         public ICollection<Service> Services { get; set; }
         public ICollection<Social> Socials { get; set; }
         public ICollection<VendorImage> Images { get; set; }
+        public ICollection<VendorRating> Ratings { get; set; } = new List<VendorRating>();
+
     }
 }
