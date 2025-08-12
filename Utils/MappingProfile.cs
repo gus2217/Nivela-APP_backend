@@ -35,6 +35,9 @@ namespace NivelaService.Utils
             // Images
             CreateMap<VendorImage, VendorImageDto>()
                 .ForMember(dest => dest.Base64Content, opt => opt.MapFrom(src => Convert.ToBase64String(src.Content)));
+
+            //Ratings
+            CreateMap<VendorRating, AddVendorRatingRequestDto>().ReverseMap();
         }
     }
 }

@@ -32,6 +32,59 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "NivelaService.Controllers.VendorRatingsController",
+    "Method": "AddRating",
+    "RelativePath": "api/rating/{vendorId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendorId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "NivelaService.Models.Dto.AddVendorRatingRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NivelaService.Controllers.VendorRatingsController",
+    "Method": "GetRatings",
+    "RelativePath": "api/rating/{vendorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendorId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NivelaService.Controllers.VendorRatingsController",
+    "Method": "GetAverageRating",
+    "RelativePath": "api/rating/average/{vendorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vendorId",
+        "Type": "System.Int64",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "NivelaService.Controllers.ServiceController",
     "Method": "Create",
     "RelativePath": "api/Service",

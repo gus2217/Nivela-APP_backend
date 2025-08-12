@@ -13,6 +13,7 @@ namespace NivelaService.Data
         public DbSet<Social> Socials { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<VendorImage> Images { get; set; }
+        public DbSet<VendorRating> VendorRatings { get; set; }
 
     }
 }
