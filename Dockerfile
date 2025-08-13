@@ -2,13 +2,19 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
+# Set environment variables to fix NuGet issues
+ENV DOTNET_NOLOGO=1
+ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
+ENV NUGET_XMLDOC_MODE=skip
+
 # Copy project files and restore dependencies
 COPY *.csproj ./
-RUN dotnet restore
+RUN dotnet restore --no-cache --force
 
 # Copy source code and build
 COPY . .
-RUN dotnet publish -c Release -o /app/publish --no-restore
+RUN dotnet clean
+RUN dotnet publish -c Release -o /app/publish --verbosity minimal
 
 # Runtime stage (for app)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
