@@ -5,6 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using NivelaService.Data;
 using NivelaService.Repository.Implementations;
 using NivelaService.Repository.Interface;
+using NivelaService.Services.Interface;
+using NivelaService.Services.Implementations;
 using NivelaService.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,26 @@ builder.Services.AddDbContext<ApplicationDbContext>(options
     => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<AuthDbContext>(options
     => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Configure caching - Redis in production, Memory in development
+var redisConnectionString = builder.Configuration.GetConnectionString("RedisConnection");
+if (!string.IsNullOrEmpty(redisConnectionString))
+{
+    // Production: Use Redis
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = redisConnectionString;
+        options.InstanceName = "NivelaService";
+    });
+}
+else
+{
+    // Development: Use in-memory cache
+    builder.Services.AddMemoryCache();
+}
+
+// Register cache service
+builder.Services.AddScoped<ICacheService, CacheService>();
 
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
@@ -80,7 +102,7 @@ app.UseCors(options =>
     options.AllowAnyHeader();
 });
 
-app.UseAuthorization();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
