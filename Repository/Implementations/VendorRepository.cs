@@ -51,18 +51,27 @@ namespace NivelaService.Repository.Implementations
             return _mapper.Map<VendorToDisplayDto>(vendor);
         }
 
+
         public async Task<List<VendorToDisplayDto>> GetAllAsync(int? pageNumber = 1, int? pageSize = 10)
         {
-            var page = Math.Max(pageNumber ?? 1, 1);
-            var size = Math.Max(pageSize ?? 10, 1);
+            // Ensure valid numbers
+            var page = pageNumber.GetValueOrDefault(1);
+            var size = pageSize.GetValueOrDefault(10);
 
+            if (page < 1) page = 1;
+            if (size < 1) size = 10;
+
+            // Always order before Skip/Take for consistent paging
             var vendors = await _applicationDbContext.Vendors
-                .Include(v => v.Services)
-                .Include(v => v.Socials)
-                .Include(v => v.Images)
-                .Skip((page - 1) * size)
-                .Take(size)
-                .ToListAsync();
+    .Include(v => v.Services)
+    .Include(v => v.Socials)
+    .Include(v => v.Images)
+    .Include(v => v.Ratings)
+    .AsSplitQuery() // ✅ EF will send multiple smaller SQL queries
+    .OrderBy(v => v.Id)
+    .Skip((page - 1) * size)
+    .Take(size)
+    .ToListAsync();
 
             return _mapper.Map<List<VendorToDisplayDto>>(vendors);
         }

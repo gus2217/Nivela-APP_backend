@@ -15,5 +15,6 @@
         public List<ServiceDto> Services { get; set; } = new();
         public List<SocialDto> Socials { get; set; } = new();
         public List<VendorImageDto> Images { get; set; } = new();
+        public List<RatingDto> Ratings { get; set; } = new();
     }
 }
