@@ -38,6 +38,7 @@ namespace NivelaService.Utils
 
             //Ratings
             CreateMap<VendorRating, AddVendorRatingRequestDto>().ReverseMap();
+            CreateMap<VendorRating, RatingDto>().ReverseMap();
         }
     }
 }
