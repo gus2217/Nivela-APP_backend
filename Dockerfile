@@ -9,12 +9,12 @@ ENV NUGET_XMLDOC_MODE=skip
 
 # Copy project files and restore dependencies
 COPY *.csproj ./
-RUN dotnet restore --no-cache --force
+RUN dotnet restore --no-cache
 
-# Copy source code and build
+# Copy source code and build (skip clean - it's causing the error)
 COPY . .
-RUN dotnet clean
-RUN dotnet publish -c Release -o /app/publish --verbosity minimal
+RUN dotnet build -c Release --no-restore
+RUN dotnet publish -c Release -o /app/publish --no-build
 
 # Runtime stage (for app)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
